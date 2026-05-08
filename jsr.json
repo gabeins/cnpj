@@ -1,10 +1,15 @@
 {
-	"$schema": "https://jsr.io/schema/config-file.v1.json",
-	"name": "@brazil/cnpj",
-	"version": "5.1.0",
-	"exports": "./mod.ts",
+  "$schema": "https://jsr.io/schema/config-file.v1.json",
+  "name": "@brazil/cnpj",
+  "version": "5.1.1",
+  "exports": "./mod.ts",
   "license": "MIT",
-	"publish": {
-		"include": ["readme.md", "license", "mod.ts", "index.ts"]
-	}
+  "publish": {
+    "include": [
+      "readme.md",
+      "license",
+      "mod.ts",
+      "index.ts"
+    ]
+  }
 }
