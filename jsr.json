@@ -3,6 +3,7 @@
 	"name": "@brazil/cnpj",
 	"version": "5.1.0",
 	"exports": "./mod.ts",
+  "license": "MIT",
 	"publish": {
 		"include": ["readme.md", "license", "mod.ts", "index.ts"]
 	}
