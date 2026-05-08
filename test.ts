@@ -50,3 +50,56 @@ test('generate CNPJ', () => {
 	assert.equal(validate(generate()), true)
 	assert.equal(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/.test(generate()), true)
 })
+
+test('valid alphanumeric formatted CNPJs', () => {
+	// Example from the SERPRO specification
+	assert.equal(validate('12.ABC.345/01DE-35'), true)
+})
+
+test('valid alphanumeric unformatted CNPJs', () => {
+	assert.equal(validate('12ABC34501DE35'), true)
+})
+
+test('invalid alphanumeric CNPJs (wrong DV)', () => {
+	assert.equal(validate('12.ABC.345/01DE-00'), false)
+	assert.equal(validate('12ABC34501DE99'), false)
+})
+
+test('invalid alphanumeric CNPJs (lowercase letters not accepted)', () => {
+	assert.equal(validate('12.abc.345/01de-35'), false)
+	assert.equal(validate('12abc34501de35'), false)
+})
+
+test('invalid alphanumeric CNPJs (DV section must be numeric)', () => {
+	// Letters are not allowed in the last two (DV) positions
+	assert.equal(validate('12.ABC.345/01DE-3A'), false)
+	assert.equal(validate('12ABC34501DEAB'), false)
+})
+
+test('invalid sequential alphanumeric CNPJs', () => {
+	assert.equal(validate('AAAAAAAAAAAAAA'), false)
+	assert.equal(validate('ZZZZZZZZZZZZZZ'), false)
+})
+
+test('format alphanumeric CNPJ preserving letters', () => {
+	assert.equal(format('12ABC34501DE35'), '12.ABC.345/01DE-35')
+	// Already-formatted alphanumeric CNPJ remains correctly formatted
+	assert.equal(format('12.ABC.345/01DE-35'), '12.ABC.345/01DE-35')
+})
+
+test('generate numeric CNPJ explicitly', () => {
+	const cnpj = generate({ format: 'numeric' })
+	assert.equal(validate(cnpj), true)
+	assert.equal(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/.test(cnpj), true)
+})
+
+test('generate alphanumeric CNPJ', () => {
+	for (let i = 0; i < 50; i++) {
+		const cnpj = generate({ format: 'alphanumeric' })
+		assert.equal(validate(cnpj), true)
+		assert.equal(
+			/^[A-Z0-9]{2}\.[A-Z0-9]{3}\.[A-Z0-9]{3}\/[A-Z0-9]{4}\-\d{2}$/.test(cnpj),
+			true,
+		)
+	}
+})
