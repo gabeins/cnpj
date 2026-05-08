@@ -9,7 +9,13 @@
     "dist/index.js",
     "dist/index.d.ts"
   ],
-  "repository": "gabeidx/cnpj",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabeins/cnpj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gabeins/cnpj/issues"
+  },
   "license": "MIT",
   "scripts": {
     "prebuild": "del ./dist",
