@@ -1,34 +1,34 @@
 {
-	"name": "cnpj",
-	"version": "5.1.0",
-	"description": "Format, validate and generate CNPJ numbers",
-	"type": "module",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"files": [
-		"dist/index.js",
-		"dist/index.d.ts"
-	],
-	"repository": "gabeidx/cnpj",
-	"license": "MIT",
-	"scripts": {
-		"prebuild": "del ./dist",
-		"build": "tsc",
-		"lint": "prettier --write '**/*.ts'",
-		"prepublishOnly": "npm run build",
-		"pretest": "npm run build",
-		"test": "node --test ./dist/test.js"
-	},
-	"devDependencies": {
-		"@types/node": "22.0.0",
-		"del-cli": "5.1.0",
-		"prettier": "3.3.3",
-		"typescript": "5.5.4"
-	},
-	"keywords": [
-		"cnpj",
-		"validation",
-		"brasil",
-		"brazil"
-	]
+  "name": "cnpj",
+  "version": "5.1.0",
+  "description": "Format, validate and generate CNPJ numbers",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ],
+  "repository": "gabeidx/cnpj",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "del ./dist",
+    "build": "tsc",
+    "lint": "prettier --write '**/*.ts'",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run build",
+    "test": "node --test ./dist/test.js"
+  },
+  "devDependencies": {
+    "@types/node": "22.0.0",
+    "del-cli": "5.1.0",
+    "prettier": "3.3.3",
+    "typescript": "5.5.4"
+  },
+  "keywords": [
+    "cnpj",
+    "validation",
+    "brasil",
+    "brazil"
+  ]
 }

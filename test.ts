@@ -97,9 +97,6 @@ test('generate alphanumeric CNPJ', () => {
 	for (let i = 0; i < 50; i++) {
 		const cnpj = generate({ format: 'alphanumeric' })
 		assert.equal(validate(cnpj), true)
-		assert.equal(
-			/^[A-Z0-9]{2}\.[A-Z0-9]{3}\.[A-Z0-9]{3}\/[A-Z0-9]{4}\-\d{2}$/.test(cnpj),
-			true,
-		)
+		assert.equal(/^[A-Z0-9]{2}\.[A-Z0-9]{3}\.[A-Z0-9]{3}\/[A-Z0-9]{4}\-\d{2}$/.test(cnpj), true)
 	}
 })
