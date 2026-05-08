@@ -37,10 +37,7 @@ export function format(cnpj: string | number): string {
 
 	// If it looks like a well-formed alphanumeric CNPJ, format preserving letters
 	if (/^[A-Z0-9]{12}\d{2}$/.test(stripped)) {
-		return stripped.replace(
-			/^([A-Z0-9]{2})([A-Z0-9]{3})([A-Z0-9]{3})([A-Z0-9]{4})(\d{2})$/,
-			'$1.$2.$3/$4-$5',
-		)
+		return stripped.replace(/^([A-Z0-9]{2})([A-Z0-9]{3})([A-Z0-9]{3})([A-Z0-9]{4})(\d{2})$/, '$1.$2.$3/$4-$5')
 	}
 
 	return (
@@ -71,10 +68,7 @@ export interface GenerateOptions {
 export function generate(options: GenerateOptions = {}): string {
 	const { format: outputFormat = 'numeric' } = options
 
-	const alphabet =
-		outputFormat === 'alphanumeric'
-			? '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-			: '0123456789'
+	const alphabet = outputFormat === 'alphanumeric' ? '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' : '0123456789'
 
 	let cnpj = ''
 	let i = 12
